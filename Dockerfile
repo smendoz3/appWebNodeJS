@@ -9,9 +9,9 @@ ENV PORT $PORT
 
 WORKDIR /nodeApp
 
-RUN npm install --test
-
 COPY . ./
+
+RUN npm install --test
 
 EXPOSE 3000
 
