@@ -1,0 +1,22 @@
+doctype html
+html(class="html")
+  head    
+  body(class="html")
+        ul(class="eje")
+          li(class="Logo")
+            a(class="Titulo")  GPS-Route
+            -if (user) {
+              img(class="imgRedonda" src="/imagenProfile/jose.jpg", alt="alt")
+              a(class="dropbtn") #{user.username}
+              div(class="dropdown-content")
+                a(href="/profile" class="Titulo") perfil
+                a(href="/logout" class="Titulo") cerrar sesión
+            -} else {
+              a(class="Titulo", href="/login") Iniciar Sesión   
+            -}
+    -if (user) {
+      -if (welcome) {
+        H1(class="Titulo") Welcome #{user.username}
+      -}
+    -}
+    block content

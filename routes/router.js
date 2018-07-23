@@ -4,10 +4,21 @@ var User = require('../app/models/user');
 
 
 // GET route for reading data
-router.get('/', function (req, res, next) {
-  return res.sendFile(path.join(__dirname + '/templateLogReg/index.html'));
+router.get('/login', function (req, res, next) {
+    if (req.session.valid) {
+	res.redirect('/');
+    }else{
+	res.render('login');
+    }
 });
 
+router.get('/Registrar', function (req, res, next) {
+    if (req.session.valid) {
+	res.redirect('/');
+    }else {
+	res.render('registrar');
+    }
+});
 
 //POST route for updating data
 router.post('/', function (req, res, next) {

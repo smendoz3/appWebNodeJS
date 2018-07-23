@@ -1,0 +1,271 @@
+
+.container { margin: 0 auto; }
+
+/* Example wrapper */
+.wrap {
+	position: relative;
+	margin: 3em 0;
+}
+
+/* Frame */
+.frame {
+	height: 200px;
+	/*line-height: 150px;*/
+	/*overflow: hidden;*/
+}
+
+.frame ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-size: 50px;
+}
+.frame:hover ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-size: 50px;
+	opacity: 1;
+}
+.frame ul li {
+	float: left;
+	width: 250px;
+	height: 150px;
+	margin: 0 5px 0 0;
+	padding: 0;
+	background: #333;*/
+	color: #ddd;*/
+	text-align: center;
+	cursor: pointer;
+}
+
+
+
+.PreviewVideo{
+	height: 150px;
+	width: 250px;
+}
+.PreviewVideo:hover{
+	height: 150px;
+	width: 250px;
+	opacity: 1;
+
+}
+
+
+.frame ul li.active {
+	/*color: #fff;*/
+	/*background: #a03232;*/
+}
+
+/* Scrollbar */
+.scrollbar {
+	margin: 0 0 1em 0;
+	height: 2px;
+	background: #ccc;
+	line-height: 0;
+}
+.scrollbar .handle {
+	width: 100px;
+	height: 100%;
+	background: #ccc;
+	cursor: pointer;
+}
+.scrollbar .handle .mousearea {
+	position: absolute;
+	top: -9px;
+	left: 0;
+	width: 100%;
+	height: 20px;
+}
+
+/* Pages */
+.pages {
+	list-style: none;
+	margin: 20px 0;
+	padding: 0;
+	text-align: center;
+}
+.pages li {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin: 0 4px;
+	text-indent: -999px;
+	border-radius: 10px;
+	cursor: pointer;
+	overflow: hidden;
+	background: #fff;
+	box-shadow: inset 0 0 0 1px rgba(0,0,0,.2);
+}
+.pages li:hover {
+	background: #aaa;
+}
+.pages li.active {
+	background: #666;
+}
+
+/* Controls */
+.controls {
+	position: absolute;
+	float: left;
+	top: 70px;
+}
+.controls2 {
+	position: absolute;
+	right: 0px;
+	top: 70px;
+}
+
+/* One Item Per Frame example*/
+.oneperframe { height: 300px; line-height: 300px; }
+.oneperframe ul li { width: 1140px; }
+.oneperframe ul li.active { background: #333; }
+
+/* Crazy example */
+.crazy ul li:nth-child(2n) { width: 100px; margin: 0 4px 0 20px; }
+.crazy ul li:nth-child(3n) { width: 300px; margin: 0 10px 0 5px; }
+.crazy ul li:nth-child(4n) { width: 400px; margin: 0 30px 0 2px; }
+
+.image_wrapper {
+		position:relative;
+}
+
+.image_wrapper .image {
+
+}
+
+/* Definimos el formato de las imagenes */
+.image_wrapper .add{
+		position:absolute;
+		top:0px;
+		cursor:pointer;
+		border:0px;
+		width:50px;
+		height:50px;
+		opacity: 0;
+		transition: 0.45s;
+}
+
+.image_wrapper:hover .add{
+		position:absolute;
+		top:50px;
+		cursor:pointer;
+		border:0px;
+		width:50px;
+		height:50px;
+		opacity: 1;
+}
+
+.image_wrapper .line{
+	center:0px;
+}
+/* Mostramos el icono al pasar por encima de la imagen con una transicion */
+/* Posicionamos los botones en la posicion izquierda y derecha */
+.image_wrapper .add {
+		position: absolute;
+		left:100px;
+		top: 50px;
+}
+
+.tile {
+  width: 250px;
+  height: 150px;
+  background-color: skyblue;
+  padding: 5px;
+  box-sizing: border-box;
+  transition: 0.45s transform;
+  transform-origin: top left;
+  float: left;
+  margin-right: 10px;
+
+}
+
+.row {
+  transition: 1s transform;
+}
+
+.row:hover {
+  transform: translate3d(-50px, 0, 0);
+}
+
+.tile:hover {
+  transform: scale(1.2);
+}
+
+.tile:hover ~ .tile {
+  transform: translate3d(50px, 0, 0);
+}
+
+.tile__img {
+  width: 250px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.tile__details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  font-size: 20px;
+  opacity: 0;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,0.9)), to(rgba(0,0,0,0)));
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+  -webkit-transition: 450ms opacity;
+  transition: 450ms opacity;
+}
+
+.tile__details:after,
+.tile__details:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: #000;
+}
+.tile__details:after {
+  margin-top: -25px;
+  margin-left: -25px;
+  width: 50px;
+  height: 50px;
+  border: 3px solid #ecf0f1;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+.tile__details:before {
+  content: '▶';
+  left: 0;
+  width: 100%;
+  font-size: 30px;
+  margin-left: 2px;
+  margin-top: -23.5px;
+  text-align: center;
+  z-index: 2;
+	color: white;
+}
+
+.tile:hover .tile__details {
+  opacity: 1;
+}
+.tile__title {
+  position: absolute;
+	top:0px;
+  bottom: 0;
+  padding: 5px;
+	color: white;
+	font-size: 15px;
+}
+.tile__title2{
+	position: absolute;
+	bottom: 0;
+	padding: 5px;
+	color: white;
+	font-size: 15px;
+}

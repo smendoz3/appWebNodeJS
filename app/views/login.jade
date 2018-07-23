@@ -1,0 +1,33 @@
+extends layout
+block content
+  head
+    title Register Login with Authentication
+    script(type='application/x-javascript').
+
+  body
+    .main
+      div(class='center-xs container-fluid TextLogin padre')
+        div(class="")
+          div(class='center-xs')
+            h3(class="tamanoLetra")="Iniciar Sesión"
+            br
+            form(class='' action='/', method='post')
+                div(class='form-group ')
+                  label(for='logemail') Email
+                    br
+                    input(class='form-control', id='logemail', type='text', value='', name='logemail', placeholder='E-mail', required='', style="width:400px")
+                div(class='form-group')
+                  br
+                  label(for='password') Contraseña
+                    br
+                    input(class='form-control' id='password', type='password', value='', name='logpassword', placeholder='Password', required='', style="width:400px")
+                br
+                br
+                input(class='btn btn-primary tamBtn' type='submit', value='LOGIN NOW')
+                | &#x9;&#x9;
+            div
+              br
+              a(href="/Registrar" style="color:#0C66FB") Registrarse Ahora
+      
+      | &#x9;&#x9;
+      .clear

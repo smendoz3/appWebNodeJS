@@ -1,0 +1,44 @@
+extends layout
+block content
+  head
+    title Register Login with Authentication
+    // Custom Theme files
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(name='keywords', content='Register Login Widget template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login Signup Responsive web template, SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design')
+    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css', type='text/css')
+    script(type='application/x-javascript').
+      addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+
+  body
+    // main
+    .main
+      // login-profile
+      // login-profile
+      // signin-form
+      
+      div(class='center-xs container-fluid TextLogin padre')
+        div(class="")
+          div(class='center-xs')
+            h3(class="tamanoLetra")="Iniciar Sesión"
+            br
+            form(class='' action='/', method='post')
+                div(class='form-group ')
+                  label(for='logemail') Email
+                    br
+                    input(class='form-control', id='logemail', type='text', value='', name='logemail', placeholder='E-mail', required='', style="width:400px")
+                div(class='form-group')
+                  br
+                  label(for='password') Contraseña
+                    br
+                    input(class='form-control' id='password', type='password', value='', name='logpassword', placeholder='Password', required='', style="width:400px")
+                br
+                br
+                input(class='btn btn-primary tamBtn' type='submit', value='LOGIN NOW')
+                | &#x9;&#x9;
+            div
+              br
+              a(href="/Registrar" style="color:#0C66FB") Registrarse Ahora
+      
+      | &#x9;&#x9;
+      .clear

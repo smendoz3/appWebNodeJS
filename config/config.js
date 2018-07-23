@@ -21,7 +21,7 @@ var config = {
       name: 'articulos'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://mongo-server/articulosem-test'
+    db: 'mongodb://localhost/articulosem-test'
   },
 
   production: {

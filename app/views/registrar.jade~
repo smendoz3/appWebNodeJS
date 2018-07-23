@@ -1,0 +1,36 @@
+block content
+  head
+    meta(charset='utf-8')
+    title
+    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css', type='text/css')
+
+  body
+    div(class='center-xs container-fluid TextLogin padre')
+      div(class='center-xs')
+        h3(class="tamanoLetra") Register
+        | &#x9;&#x9;&#x9;&#x9;
+        | &#x9;&#x9;&#x9;&#x9;
+        .login-form
+          form(action='/', method='post')
+            div(class='form-group')
+              label(for='email') email
+                br
+                input(class='form-control', id='email', type='text', value='', name='email', placeholder='E-mail', required='', style="width:400px")
+            div(class='form-group')
+              label(for='username') username
+                br
+                input(class='form-control', id='username', type='text', name='username', placeholder='Username', required='', style="width:400px")
+            div(class='form-group')
+              label(for='password') Contraseña
+                br
+                input(class='form-control', id='password', type='password', name='password', placeholder='Password', required='', style="width:400px")
+            div(class='form-group')
+              label(for='passwordConf') Repetir Contraseña
+                br
+                input(class='form-control', id='passwordConf', type='password', name='passwordConf', placeholder='Confirm Password', required='', style="width:400px")
+            br 
+            input(class='btn btn-primary tamBtn' type='submit', value='REGISTER')
+        p
+          a(href='#')  By clicking register, I agree to your terms
+    | &#x9;&#x9;
+    .clear
