@@ -12,11 +12,11 @@ router.get('/login', function (req, res, next) {
     }
 });
 
-router.get('/Registrar', function (req, res, next) {
+router.get('/register', function (req, res, next) {
     if (req.session.valid) {
 	res.redirect('/');
     }else {
-	res.render('registrar');
+	res.render('register');
     }
 });
 
