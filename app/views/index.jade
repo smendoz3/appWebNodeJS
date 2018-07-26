@@ -1,0 +1,29 @@
+extends layout
+block content
+  p Hi
+    button(onclick='getLocation()') Try It
+  script.
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(pos) {
+          geocoder = new google.maps.Geocoder();
+          var latlng = new google.maps.LatLng(pos.coords.latitude,pos.coords.longitude);
+          console.log(latlng);
+          geocoder.geocode({'latLng': latlng}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+              //Check result 0
+              var result = results[0];
+              console.log(result);
+            }else{console.log('faio :c');
+            } 
+          });
+        });
+      } else { 
+          console.log('bale berga la bida');
+        }
+    }
+
+    function showPosition(position) {
+      //ML = "Latitude: " + position.coords.latitude + 
+      //"<br>Longitude: " + position.coords.longitude;
+    }

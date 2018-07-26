@@ -20,6 +20,14 @@ router.get('/register', function (req, res, next) {
     }
 });
 
+router.get('/', function (req, res, next) {
+   // if (req.session.valid) {
+  res.render('index');
+   // }else {
+  //res.redirect('/login');
+   // }
+});
+
 //POST route for updating data
 router.post('/', function (req, res, next) {
   // confirm that user typed same password twice
