@@ -5,25 +5,32 @@ block content
   script.
     function getLocation() {
       if (navigator.geolocation) {
+        console.log('k onda prros');
         navigator.geolocation.getCurrentPosition(function(pos) {
-          geocoder = new google.maps.Geocoder();
-          var latlng = new google.maps.LatLng(pos.coords.latitude,pos.coords.longitude);
-          console.log(latlng);
-          geocoder.geocode({'latLng': latlng}, function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-              //Check result 0
-              var result = results[0];
-              console.log(result);
-            }else{console.log('faio :c');
-            } 
-          });
+          console.log(pos);
+          console.log(pos.coords.latitude);
+          console.log(pos.coords.longitude);
         });
       } else { 
           console.log('bale berga la bida');
         }
     }
 
-    function showPosition(position) {
-      //ML = "Latitude: " + position.coords.latitude + 
-      //"<br>Longitude: " + position.coords.longitude;
-    }
+    function handleLocationError(error) {
+  switch(error.code){
+  case 0:
+    updateStatus("There was an error while retrieving your location: " +
+                                 error.message);
+  break;
+  case 1:
+  updateStatus("The user prevented this page from retrieving a location.");
+  break;
+  case 2:
+  updateStatus("The browser was unable to determine your location: " +
+                               error.message);
+  break;
+  case 3:
+  updateStatus("The browser timed out before retrieving the location.");
+  break;
+  }
+}
