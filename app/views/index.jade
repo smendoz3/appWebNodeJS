@@ -2,7 +2,8 @@ extends layout
 block content
   head
     p Hi
-      button(onclick='getLocation()') Try It
+      button(onclick='start()') START
+      button(onclick='flagOff()') STOP
     h1 HOLA
   body
     div
@@ -10,17 +11,46 @@ block content
 
 
     script.
+      var options = {
+        enableHighAccuracy: false,
+        timeout: 5000,
+        maximumAge: 0
+      };
+
+      var getloc;
+
       function getLocation() {
-        if (navigator.geolocation) {
-          console.log('k onda prros');
-          navigator.geolocation.getCurrentPosition(function(pos) {
-            console.log(pos);
-            console.log(pos.coords.latitude);
-            console.log(pos.coords.longitude);
-          });
-        } else { 
+        
+        setTimeout(function () {    //  call a 3s setTimeout when the loop is called
+          //alert('hello');          //  your code here
+          if (navigator.geolocation) {
+            console.log('Enviando coordenadas');
+            navigator.geolocation.getCurrentPosition(function(pos, options) {
+              console.log("Latitude: " + pos.coords.latitude);
+              console.log("Longitude: " + pos.coords.longitude);
+            });
+          } else { 
             console.log('bale berga la bida');
           }
+          console.log(getloc);
+          if (getloc) {            //  if the counter < 10, call the loop function
+            getLocation();             //  ..  again which will trigger another 
+          }                        //  ..  setTimeout()
+        }, 10000) 
+      }
+
+      function start(){
+        flagOn();
+        getLocation();
+      }
+
+      function flagOn(){
+        getloc = true;
+      }
+
+      function flagOff(){
+        console.log('Finish');
+        getloc = false;
       }
 
       function handleLocationError(error) {
