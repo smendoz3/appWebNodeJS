@@ -53,7 +53,7 @@ app.use(function (err, req, res, next) {
     res.send(err.message);
 });
 
-//Use MOdels
+//Use Models
 var models = glob.sync(config.root + '/app/models/*.js');
 models.forEach(function (model) {
     require(model);

@@ -2,30 +2,37 @@ var express = require('express');
 var router = express.Router();
 var User = require('../app/models/user');
 
-
 // GET route for reading data
 router.get('/login', function (req, res, next) {
-    if (req.session.valid) {
-	res.redirect('/');
-    }else{
-	res.render('login');
-    }
+  if (req.session.userId) {
+	  res.redirect('/');
+  }else{
+	  res.render('login');
+  }
 });
 
 router.get('/register', function (req, res, next) {
-    if (req.session.valid) {
-	res.redirect('/');
-    }else {
-	res.render('register');
-    }
+  if (req.session.userId) {
+	  res.redirect('/');
+  }else {
+	  res.render('register');
+  }
 });
 
 router.get('/', function (req, res, next) {
-   // if (req.session.valid) {
-  res.render('index');
-   // }else {
-  //res.redirect('/login');
-   // }
+  if (req.session.userId) {
+    User.findById(req.session.userId, function(err, query) {
+      //console.log(query);
+      res.render('index',{user: query});
+    });    
+
+    //query.select('name');
+    //console.log(query);
+    
+  } else {
+    res.redirect('/login');
+    console.log(req.session);
+  }
 });
 
 //POST route for updating data
@@ -67,8 +74,13 @@ router.post('/', function (req, res, next) {
         err.status = 401;
         return next(err);
       } else {
+        //req.session.valid = true;
         req.session.userId = user._id;
-        return res.redirect('/profile');
+        //return res.redirect('/');
+        console.log(req.session.userId);
+        var eje = true;
+        //console.log(user);
+        res.render('index',{user:user, welcome:eje})
       }
     });
   } else {
