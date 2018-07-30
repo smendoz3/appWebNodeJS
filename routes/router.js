@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../app/models/user');
-
+var Route = require('../app/models/route');
 // GET route for reading data
 router.get('/login', function (req, res, next) {
   if (req.session.userId) {
@@ -25,7 +25,6 @@ router.get('/', function (req, res, next) {
       //console.log(query);
       res.render('index',{user: query});
     });    
-
     //query.select('name');
     //console.log(query);
     
@@ -33,6 +32,15 @@ router.get('/', function (req, res, next) {
     res.redirect('/login');
     console.log(req.session);
   }
+});
+
+router.post('/route', function(req, res){
+  console.log(req.body);
+  var route = new Route(req.body);
+  route.save(function(err) {
+    console.log(route);
+  });
+
 });
 
 //POST route for updating data

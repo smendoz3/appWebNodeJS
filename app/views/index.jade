@@ -11,35 +11,66 @@ block content
 
 
     script.
+      //var Route = require('../models/route');
       var options = {
         enableHighAccuracy: false,
         timeout: 5000,
         maximumAge: 0
       };
-
+      
+      var stamp;
       var getloc;
+      var arrLat;
+      var arrLon;
+      var i;
 
       function getLocation() {
         
-        setTimeout(function () {    //  call a 3s setTimeout when the loop is called
-          //alert('hello');          //  your code here
+        setTimeout(function () {    
           if (navigator.geolocation) {
             console.log('Enviando coordenadas');
             navigator.geolocation.getCurrentPosition(function(pos, options) {
-              console.log("Latitude: " + pos.coords.latitude);
-              console.log("Longitude: " + pos.coords.longitude);
+              //console.log(pos.coords.latitude.toString());
+              arrLat.push(pos.coords.latitude.toString());
+              //console.log(pos.coords.longitude.toString());
+              arrLon.push(pos.coords.longitude.toString());
             });
           } else { 
             console.log('bale berga la bida');
           }
           console.log(getloc);
-          if (getloc) {            //  if the counter < 10, call the loop function
-            getLocation();             //  ..  again which will trigger another 
+          if (getloc) {       
+            i++;
+            getLocation();  
+          } else {
+            var data = {"username": "#{user.username}", 
+                        "lat": arrLat, 
+                        "long": arrLon};
+             
+            fetch('https://smendoz3.dis.eafit.edu.co/route', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {'Content-Type': 'application/json'}
+            }).then(response => { 
+              return response.json(); 
+            }).then(data => { 
+              alert(JSON.stringify(data));
+            }).catch(err => {
+                alert(err);
+            });
+            //console.log(arrLat);
+            //console.log(arrLon);
+            //console.log(#{user.username});
+
           }                        //  ..  setTimeout()
         }, 10000) 
       }
 
       function start(){
+        arrLat = [];
+        arrLon = [];
+        i = 0;
+        getloc
         flagOn();
         getLocation();
       }
