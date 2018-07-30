@@ -21,6 +21,7 @@ router.get('/register', function (req, res, next) {
 
 router.get('/', function (req, res, next) {
   if (req.session.userId) {
+    console.log(req.session);
     User.findById(req.session.userId, function(err, query) {
       //console.log(query);
       res.render('index',{user: query});
@@ -32,6 +33,32 @@ router.get('/', function (req, res, next) {
     res.redirect('/login');
     console.log(req.session);
   }
+});
+
+router.get('/routes', function(req, res, next) {
+  var uname;
+  // var routesArr = [];
+  // var latArr = [];
+  // var longArr = [];
+  User.findById(req.session.userId ,function(err,usr){
+    uname = usr.username;
+  });
+  Route.find({name : uname},function(err,routesq){
+    //console.log(routes);
+      // for (var i = 0; i < routes.length; i++) {
+      //   routesArr[i] = routes[i]._id;
+      //   for (var j = 0; j < routes[i].lat.length; j++){
+      //     latArr[j] = routes[i].lat[j];
+      //   }
+      //   for (var k = 0; k < routes[i].long.length; k++){
+      //     longArr[k] = routes[k].long[k];
+      //   }
+      //   //ArregloTitleVid[i] = videos[i].title;
+      // }
+      res.render('routes',{routes : routesq});
+  });
+  //res.redirect('/login');
+  //console.log(req.session);
 });
 
 router.post('/route', function(req, res){

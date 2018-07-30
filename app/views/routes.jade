@@ -1,0 +1,17 @@
+extends layout
+block content
+  head
+    h1 HOLA
+  body
+    -for (var i = 0; i < routes.length; i++) {
+      div
+      -var routeid = routes[i]._id
+        h1 #{routeid} 
+        -for (var j = 0; j < routes[i].lat.length; j++) {
+          -var lat = routes[i].lat[j]
+          -var long = routes[i].long[j]
+          h3 #{lat} , #{long}
+        -}
+    -}
+    div
+      h3 SESION INICIADA
