@@ -44,7 +44,7 @@ router.get('/routes', function(req, res, next) {
     uname = usr.username;
   });
   Route.find({name : uname},function(err,routesq){
-    //console.log(routes);
+    //1console.log(routes);
       // for (var i = 0; i < routes.length; i++) {
       //   routesArr[i] = routes[i]._id;
       //   for (var j = 0; j < routes[i].lat.length; j++){
